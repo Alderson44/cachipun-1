@@ -1,120 +1,170 @@
-
 const papel1 = document.querySelector(".btn-primary"); 
 const piedra1 = document.querySelector(".btn-secondary"); 
 const tijeras1 = document.querySelector(".btn-third"); 
 
 
-const resultado1 = document.querySelector("#resultado1")
 const maquina1 = document.querySelector("#maquina1")
 const maquina2 = document.querySelector("#maquina2")
+const resultado1 = document.querySelector("#resultado1")
 
 
 
-papel1.addEventListener("click", eligePapel );
-piedra1.addEventListener("click", eligePiedra );
-tijeras1.addEventListener("click", eligeTijeras );
- 
+papel1.addEventListener("click", elegirPapel );
+piedra1.addEventListener("click", elegirPiedra );
+tijeras1.addEventListener("click", elegirTijeras );
+
 
 const papel = "papel";
 const piedra = "piedra";
 const tijeras = "tijeras";
-var aleatorio;
 
-function eligePapel() {
 
+function elegirPapel()  {
+    var jugador = papel;
+    console.log(jugador)
 
     const aleatorioMaquina = ["papel", "piedra", "tijeras"];
-    const aleatorio = aleatorioMaquina[Math.floor(Math.random() * aleatorioMaquina.length)];
-
+    const maquina = aleatorioMaquina[Math.floor(Math.random() * aleatorioMaquina.length)];
+    console.log(maquina)
     
-    console.log(aleatorio) 
-    const papel1 = "papel"
 
-     if (papel1 == papel  && aleatorio == piedra){
-        maquina1.innerText = "TU ELEGISTE : " + papel1 ;
-        maquina2.innerText = "COMPUTADOR ELIGIO : " + aleatorio ;
+    switch (true) {
+  
+        case jugador === maquina:
         
-        resultado1.innerText = "SCORE : GANASTE"
-        console.log("GANASTE")
-    }else if (papel1 == papel && aleatorio == tijeras) {
-        maquina1.innerText = "TU ELEGISTE : " + papel1 ;
-        maquina2.innerText = "COMPUTADOR ELIGIO : " + aleatorio ;
+        maquina1.innerText = "TU ELEGISTE : " + jugador ;
+        maquina2.innerText = "COMPUTADOR ELIGIO : " + maquina ;
+        resultado1.innerText = "SCORE : EMPATASTE"
 
+        console.log("empate")
+        break; 
+        
+        case ( jugador === "papel" && maquina === "tijeras" ):
+        
+        maquina1.innerText = "TU ELEGISTE : " + jugador ;
+        maquina2.innerText = "COMPUTADOR ELIGIO : " + maquina ;
         resultado1.innerText = "SCORE : PERDISTE"
-        console.log("PERDISTE")
-    
-    }else {
-        maquina1.innerText = "TU ELEGISTE : " + papel1 ;
-        maquina2.innerText = "COMPUTADOR ELIGIO : " + aleatorio ;
 
-        resultado1.innerText = "SCORE : EMPATASTE"
-        console.log("EMPATASTE")
-    
-    }
-    
-}
-    
-
-eligePapel()
-
-function eligePiedra() { 
-
-    const aleatorioMaquina = ["papel", "piedra", "tijeras"];
-    const aleatorio = aleatorioMaquina[Math.floor(Math.random() * aleatorioMaquina.length)];
-
-    
-    console.log(aleatorio) 
-
-    const piedra1 = piedra;
-
-     if (piedra1 == piedra  && aleatorio == tijeras){
-        maquina1.innerText = "TU ELEGISTE : "  + piedra1 ; 
-        maquina2.innerText = "COMPUTADOR ELIGIO : " + aleatorio ;
-
-        resultado1.innerText = "SCORE : WINNER"
-        console.log("GANASTE")
-    }else if (piedra1 == piedra && aleatorio == papel) {
-        maquina1.innerText = "TU ELEGISTE : " + piedra1 ; 
-        maquina2.innerText = "COMPUTADOR ELIGIO : " + aleatorio ;
-        console.log("PERDISTE")
-        resultado1.innerText = "SCORE : PERDISTE"   
-
-    }else {
-        console.log("EMPATASTE")
-        resultado1.innerText = "SCORE : EMPATASTE"
-        maquina1.innerText = "TU ELEGISTE : " + piedra1 ; 
-        maquina2.innerText = "COMPUTADOR ELIGIO : " + aleatorio ;
-    }
-
-}
-eligePiedra()
-
-function eligeTijeras() { 
-
-    const aleatorioMaquina = ["papel", "piedra", "tijeras"];
-    const aleatorio = aleatorioMaquina[Math.floor(Math.random() * aleatorioMaquina.length)];
-
-    const tijeras1 = "tijeras";
-
-    if (tijeras1 == tijeras && aleatorio == papel) {
-        maquina1.innerText = "TU ELEGISTE : " + tijeras1 ;
-        maquina2.innerText = "COMPUTADOR ELIGIO : " + aleatorio ;
-        console.log("GANASTE")
+        console.log("perdiste")
+        break;
+        
+        case (jugador === "papel" && maquina === "piedra" ):
+        
+        maquina1.innerText = "TU ELEGISTE : " + jugador ;
+        maquina2.innerText = "COMPUTADOR ELIGIO : " + maquina ;
         resultado1.innerText = "SCORE : GANASTE"
-    }else if(tijeras1 == tijeras && aleatorio == piedra) {
-        maquina1.innerText = "TU ELEGISTE : " + tijeras1 ; 
-        maquina2.innerText = "COMPUTADOR ELIGIO : " + aleatorio ;
-        console.log("PERDISTE")
-        resultado1.innerText = "SCORE : PERDISTE"   
-    }else {
-        console.log("EMPATASTE")
-        resultado1.innerText = "SCORE : EMPATASTE"
-        maquina1.innerText = "TU ELEGISTE :  "  + tijeras1 ;
-        maquina2.innerText = "COMPUTADOR ELIGIO :  " +  aleatorio ;
-    }
-}
 
-eligeTijeras()
+        console.log("ganaste")
+        break;
+
+        default: 
+            console.log("elige una opcion correcta !!!" )
+
+    }
+
+}
+elegirPapel()
+
+function elegirPiedra()  {
+    var jugador = piedra;
+    console.log(jugador)
+
+    const aleatorioMaquina = ["papel", "piedra", "tijeras"];
+    const maquina = aleatorioMaquina[Math.floor(Math.random() * aleatorioMaquina.length)];
+    console.log(maquina)
+    
+
+    switch (true) {
+  
+        case jugador === maquina:
+        
+        maquina1.innerText = "TU ELEGISTE : " + jugador ;
+        maquina2.innerText = "COMPUTADOR ELIGIO : " + maquina ;
+        resultado1.innerText = "SCORE : EMPATASTE"
+
+        console.log("empate")
+        break; 
+        
+        case ( jugador === "piedra" && maquina === "papel" ):
+
+        maquina1.innerText = "TU ELEGISTE : " + jugador ;
+        maquina2.innerText = "COMPUTADOR ELIGIO : " + maquina ;
+        resultado1.innerText = "SCORE : PERDISTE"
+
+        console.log("perdiste")
+        break;
+        
+        case (jugador === "piedra" && maquina === "tijeras" ):
+
+        maquina1.innerText = "TU ELEGISTE : " + jugador ;
+        maquina2.innerText = "COMPUTADOR ELIGIO : " + maquina ;
+        resultado1.innerText = "SCORE : GANASTE"
+
+        console.log("ganaste")
+        break;
+
+        default: 
+            console.log("elige una opcion correcta !!!" )
+
+    }
+
+}
+elegirPiedra()
+
+function elegirTijeras()  {
+    var jugador = tijeras;
+    console.log(jugador)
+
+    const aleatorioMaquina = ["papel", "piedra", "tijeras"];
+    const maquina = aleatorioMaquina[Math.floor(Math.random() * aleatorioMaquina.length)];
+    console.log(maquina)
+    
+
+    switch (true) {
+  
+        case jugador === maquina:
+
+        maquina1.innerText = "TU ELEGISTE : " + jugador ;
+        maquina2.innerText = "COMPUTADOR ELIGIO : " + maquina ;
+        resultado1.innerText = "SCORE : EMPATASTE"
+
+        console.log("empate")
+        break; 
+        
+        case ( jugador === "tijeras" && maquina === "piedra" ):
+
+        maquina1.innerText = "TU ELEGISTE : " + jugador ;
+        maquina2.innerText = "COMPUTADOR ELIGIO : " + maquina ;
+        resultado1.innerText = "SCORE : PERDISTE"
+
+        console.log("perdiste")
+        break;
+        
+        case (jugador === "tijeras" && maquina === "papel" ):
+
+        maquina1.innerText = "TU ELEGISTE : " + jugador ;
+        maquina2.innerText = "COMPUTADOR ELIGIO : " + maquina ;
+        resultado1.innerText = "SCORE : GANASTE"
+
+        console.log("ganaste")
+        break;
+
+        default: 
+            console.log("elige una opcion correcta !!!" )
+
+    }
+
+}
+elegirPiedra()
+
+
+
+
+
+
+
+
+
 
 
 
